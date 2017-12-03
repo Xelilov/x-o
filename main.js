@@ -23,15 +23,23 @@ for(var i=0; i<buttons.length;i++){
 			count=0;
 			return;
 		}
-		count++;
+		
 		if(checking==true){
-			event.target.innerHTML = "X";
-			event.target.style.color = "blue";
-			checking =false;
+			if(this.innerHTML==""){
+				event.target.innerHTML = "X";
+				event.target.style.color = "blue";
+				checking =false;
+				count++;
+			}			
 		}else{
-			event.target.innerHTML ="O";
-			event.target.style.color = "red";
-			checking=true;
+			if(this.innerHTML==""){
+				event.target.innerHTML ="O";
+				event.target.style.color = "red";
+				checking=true;
+				count++;
+
+			}
+			
 		}
 		win();
 		
@@ -71,11 +79,3 @@ function win(){
 			count=0;
 	}
 }
-
-
-// function saat(event){
-// 	console.log(this)
-// 	console.log(event.target)
-// }
-// var button=document.body.querySelector("button")
-// button.addEventListener("click", saat)
